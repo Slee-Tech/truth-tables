@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css"
+        />
+        <style>
+            .row-margin {
+                margin-top: 0.5rem;
+            }
+
+            .d-none {
+                display: none;
+            }
+
+            /* .statement-input {
+                letter-spacing: 0.1em;
+            } */
+        </style>
+
+        <title>Document</title>
+    </head>
+    <body>
+        <div class="container">
+            <div class="ui grid">
+                <div class="column centered twelve wide">
+                    <div class="ui inverted segment">
+                        <div class="ui inverted secondary menu">
+                            <a class="active item">
+                                Truth Tables
+                            </a>
+                            <a class="item">
+                                About
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <!-- input area for conditions of table -->
+                <div class="column centered twelve wide">
+                    <form action="" class="table" method="POST">
+                        <div class="ui form">
+                            <h5>Step 1:</h5>
+                            <p>Select Your Statement Variables</p>
+                            <div class="inline fields">
+                                <div class="four wide field">
+                                    <select
+                                        class="ui search dropdown"
+                                        name="input_1"
+                                    >
+                                        <option value=""
+                                            >Select Statement Variable</option
+                                        >
+                                        <option value="p">P</option>
+                                        <option value="q">Q</option>
+                                        <option value="r">R</option>
+                                    </select>
+                                </div>
+
+                                <div class="four wide field">
+                                    <select
+                                        class="ui search dropdown"
+                                        name="input_2"
+                                    >
+                                        <option value=""
+                                            >Select Statement Variables</option
+                                        >
+                                        <option value="p">P</option>
+                                        <option value="q">Q</option>
+                                        <option value="r">R</option>
+                                    </select>
+                                </div>
+                                <div class="four wide field">
+                                    <select
+                                        class="ui search dropdown"
+                                        name="input_3"
+                                    >
+                                        <option value=""
+                                            >Select Statement Variables</option
+                                        >
+                                        <option value="p">P</option>
+                                        <option value="q">Q</option>
+                                        <option value="r">R</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <button class="ui primary button" type="submit">
+                            Select Statement Variables
+                        </button>
+                    </form>
+                </div>
+                <!-- step 2 -->
+                <div class="column centered twelve wide row-margin">
+                    <div class="d-none statement">
+                        <h5>Step 2:</h5>
+                        <p>
+                            Create Your Statement using the buttons below and
+                            click "Create Table" to see the truth values
+                        </p>
+                        <!-- will hold buttons for selected vars -->
+                        <span class="selected-vars"></span>
+                        <button class="ui back-btn button">
+                            Back
+                        </button>
+                        <button class="ui var-btn button">
+                            Or
+                        </button>
+                        <div class="ui var-btn button" tabindex="0">
+                            And
+                        </div>
+                        <button class="ui var-btn button">
+                            (
+                        </button>
+                        <div class="ui var-btn button" tabindex="0">
+                            )
+                        </div>
+                        <div class="column centered eight wide row-margin">
+                            <div class="ui fluid action input">
+                                <!-- <p>Your Current Statement</p> -->
+                                <input
+                                    readonly
+                                    class="statement-input"
+                                    type="text"
+                                    value=""
+                                />
+                                <button
+                                    class="create-table ui teal right labeled icon button"
+                                >
+                                    <i class="copy icon"></i>
+                                    Create Table
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- final output of table -->
+                <div class="column centered twelve wide row-margin">
+                    <table class="ui celled table">
+                        <thead>
+                            <tr class="truth-headers"></tr>
+                        </thead>
+                        <tbody class="truth-table"></tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <!-- <h1>Test</h1>
+        {% for i in test %}
+        <h5>{{ i }}</h5>
+        {% endfor %} -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.js"></script>
+        <script src="{{ url_for('static', filename='table.js' ) }}"></script>
+    </body>
+</html>
